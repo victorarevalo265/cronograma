@@ -10,163 +10,220 @@
 :root{
   --bg:#F8F6F2;--card:#fff;--text:#18181B;--sub:#52525B;--muted:#A1A1AA;
   --border:#E4E4E7;--radius:10px;
-  --inv:#1D9E75;--dis:#534AB7;--dev:#185FA5;--int:#B45309;--pru:#C2410C;--mej:#3B6D11;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5}
-a{color:inherit}
 
-/* ── HERO ── */
+/* HERO */
 .hero{background:#18181B;padding:44px 36px 28px}
 .hero-eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A1A1AA;margin-bottom:12px}
 .hero h1{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px}
-.hero-stats{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:16px}
 .hero-stat-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#fff;display:block}
 .hero-stat-label{font-size:11px;color:#A1A1AA}
-.info-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.info-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .info-chip{font-size:11px;background:rgba(255,255,255,.08);color:#D4D4D8;padding:4px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.1)}
 
-/* ── PHASE BAR ── */
+/* PHASE BAR */
 .phase-row{background:#18181B;padding:0 36px 24px}
 .phase-bar{display:flex;height:6px;border-radius:99px;overflow:hidden;margin-bottom:10px}
 .phase-tags{display:flex;gap:4px;flex-wrap:wrap}
 .ptag{font-size:10px;padding:2px 9px;border-radius:99px;white-space:nowrap}
 
-/* ── LEGEND ── */
-.legend-bar{background:#fff;border-bottom:1px solid var(--border);padding:10px 36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+/* IMMEDIATE SCHEDULE BANNER */
+.banner{background:#1E3A5F;border-bottom:1px solid #1e3a5f;padding:14px 36px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.banner-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#93C5FD;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.banner-days{display:flex;gap:8px;flex-wrap:wrap}
+.bday{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:9px 12px;min-width:150px}
+.bday-label{font-size:10px;font-weight:700;color:#93C5FD;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em}
+.bday-time{font-size:11px;font-weight:600;color:#FCD34D;margin-bottom:3px}
+.bday-text{font-size:11px;color:#CBD5E1;line-height:1.4}
+.bday.done{opacity:.38}
+.bday.done .bday-label::after{content:' · ✓';color:#6EE7B7}
+.bday.today{border-color:#60A5FA;background:rgba(96,165,250,.08)}
+
+/* TECH SPECS */
+.specs-bar{background:#fff;border-bottom:1px solid var(--border);padding:10px 36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.spec{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sub)}
+.spec-sep{width:1px;height:14px;background:var(--border);flex-shrink:0}
+
+/* LEGEND */
+.legend-bar{background:#fff;border-bottom:1px solid var(--border);padding:8px 36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sub)}
 .leg-dot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
 .leg-sep{width:1px;height:14px;background:var(--border)}
 
-/* ── FILTERS ── */
-.filters{position:sticky;top:0;z-index:100;background:rgba(248,246,242,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);padding:9px 36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+/* FILTERS */
+.filters{position:sticky;top:0;z-index:100;background:rgba(248,246,242,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);padding:8px 36px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .f-label{font-size:11px;color:var(--muted);white-space:nowrap}
 .fbtn{font-size:11px;font-family:'DM Sans',sans-serif;padding:3px 11px;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--sub);transition:all .12s}
 .fbtn:hover{background:#fff}
 .fbtn.on{background:var(--text);color:#fff;border-color:var(--text)}
-.fs-chk{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sub);cursor:pointer;margin-left:auto}
+.edit-btn{font-size:11px;font-family:'DM Sans',sans-serif;padding:3px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--sub);margin-left:auto;transition:all .12s}
+.edit-btn.active{background:#FEF3C7;color:#78350F;border-color:#FCD34D;font-weight:600}
+.print-btn{font-size:11px;font-family:'DM Sans',sans-serif;padding:3px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--sub)}
+.print-btn:hover,.edit-btn:hover{background:#f5f5f4}
+.fs-chk{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sub);cursor:pointer}
 .fs-chk input{cursor:pointer;accent-color:#B45309}
-.print-btn{margin-left:6px;font-size:11px;font-family:'DM Sans',sans-serif;padding:3px 11px;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--sub)}
-.print-btn:hover{background:#fff}
 
-/* ── MAIN ── */
-main{max-width:1020px;margin:0 auto;padding:22px 36px 48px}
-.wcount{font-size:12px;color:var(--muted);margin-bottom:12px}
+/* EDIT NOTICE */
+.edit-notice{display:none;background:#FFFBEB;border-bottom:1px solid #FCD34D;padding:7px 36px;font-size:12px;color:#78350F;align-items:center;gap:8px}
+.edit-notice.show{display:flex}
+.edit-notice b{font-weight:600}
 
-/* ── WEEK CARD ── */
-.wcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:9px;overflow:hidden;border-left:4px solid transparent;transition:box-shadow .12s}
-.wcard:hover{box-shadow:0 2px 10px rgba(0,0,0,.07)}
+/* MAIN */
+main{max-width:1020px;margin:0 auto;padding:20px 36px 48px}
+.wcount{font-size:12px;color:var(--muted);margin-bottom:10px}
+
+/* WEEK CARD */
+.wcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;border-left:4px solid transparent;transition:box-shadow .12s}
+.wcard:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .wcard.cur{border:2px solid #2563EB;border-left:4px solid #2563EB}
-.wcard.past{opacity:.52}
-.wcard.fs{background:#FFFBEB;border-color:#FDE68A}
+.wcard.past{opacity:.46}
+.wcard.fs-week{background:#FFFDF5;border-color:#FDE68A}
 
-.card-hdr{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;user-select:none;flex-wrap:wrap}
+.card-hdr{display:flex;align-items:center;gap:7px;padding:9px 13px;cursor:pointer;user-select:none;flex-wrap:wrap}
 .card-hdr:hover{background:rgba(0,0,0,.02)}
-.wnum{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--muted);min-width:50px}
-.wdates{font-size:12px;color:var(--sub);min-width:105px}
+.wnum{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--muted);min-width:48px}
+.wdates{font-size:12px;color:var(--sub);min-width:98px}
 .pbadge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
 .sbadge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
 .chev{margin-left:auto;color:var(--muted);font-size:10px;transition:transform .18s;flex-shrink:0}
 .card-hdr.open .chev{transform:rotate(90deg)}
 
-/* ── CARD BODY ── */
+/* CARD BODY */
 .cbody{display:none;border-top:1px solid var(--border)}
 .cbody.open{display:grid}
-.cbody.two{grid-template-columns:1fr 2fr}
-.cbody.three{grid-template-columns:1fr 1.6fr 2fr}
-.col{padding:12px 14px}
+.grid-2{grid-template-columns:1fr 2fr}
+.grid-3{grid-template-columns:1fr 2fr 1.7fr}
+.col{padding:12px 14px;min-width:0}
 .col+.col{border-left:1px solid var(--border)}
 .col-hdr{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:9px}
-.task{font-size:12px;color:var(--sub);padding:3px 0 3px 12px;position:relative;line-height:1.45}
-.task::before{content:'–';position:absolute;left:0;color:var(--muted)}
-.hgroup{margin-bottom:8px}
-.hgroup:last-child{margin-bottom:0}
-.rbadge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:1px 8px;border-radius:4px;margin-bottom:3px}
-.col.fscol{background:#FFFBEB}
-.fs-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#92400E;margin-bottom:6px}
-.fs-sub{font-size:10px;font-weight:400;color:#78350F;display:block;margin-bottom:8px}
-.fgroup{margin-bottom:6px}
-.fgroup:last-child{margin-bottom:0}
-.fmbadge{display:inline-block;font-size:10px;font-weight:600;padding:1px 7px;border-radius:4px;margin-bottom:2px}
 
-/* ── RISKS ── */
-.risks{max-width:1020px;margin:0 auto 56px;padding:0 36px}
+/* TASKS */
+.task{font-size:12px;color:var(--sub);padding:3px 0 3px 12px;position:relative;line-height:1.45;border-radius:4px;word-break:break-word}
+.task::before{content:'–';position:absolute;left:2px;color:var(--muted)}
+.task[contenteditable="true"]{outline:none;background:#FFFBEB;cursor:text;padding-left:10px}
+.task[contenteditable="true"]::before{content:none}
+.task[contenteditable="true"]:focus{background:#FEF9C3;box-shadow:0 0 0 1px #FCD34D}
+.task.edited{border-left:2px solid #F59E0B;margin-left:2px}
+.grp{margin-bottom:8px}
+.grp:last-child{margin-bottom:0}
+.gbadge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;margin-bottom:3px}
+
+/* FS COL */
+.fscol{background:#FFFDF5}
+.fs-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#92400E;margin-bottom:2px}
+.fs-sub{font-size:10px;color:#B45309;display:block;margin-bottom:8px}
+
+/* NOTES */
+.notes-row{border-top:1px solid var(--border);padding:8px 14px;display:none;align-items:flex-start;gap:8px;background:#FAFAFA}
+.notes-row.show{display:flex}
+.notes-label{font-size:10px;font-weight:600;color:var(--muted);white-space:nowrap;padding-top:6px}
+.notes-ta{flex:1;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--sub);border:1px dashed var(--border);border-radius:6px;padding:5px 8px;background:#fff;resize:vertical;min-height:36px;line-height:1.4}
+.notes-ta:focus{outline:none;border-color:#F59E0B;background:#FFFBEB}
+.notes-saved{font-size:10px;color:#16A34A;display:none;align-self:center;white-space:nowrap}
+
+/* RISKS */
+.risks{max-width:1020px;margin:0 auto 48px;padding:0 36px}
 .sec-hdr{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:14px}
 .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .rcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
 .rcard-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:10px}
+.rtask{font-size:12px;color:var(--sub);padding:3px 0 3px 12px;position:relative;line-height:1.45}
+.rtask::before{content:'–';position:absolute;left:2px;color:var(--muted)}
 
-/* ── FOOTER ── */
-footer{text-align:center;padding:24px;font-size:11px;color:var(--muted);border-top:1px solid var(--border)}
+footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);border-top:1px solid var(--border)}
 
-/* ── RESPONSIVE ── */
-@media(max-width:660px){
-  .hero,.phase-row,.legend-bar,.filters,main,.risks{padding-left:16px;padding-right:16px}
-  .cbody.two,.cbody.three{grid-template-columns:1fr}
+@media(max-width:680px){
+  .hero,.phase-row,.banner,.specs-bar,.legend-bar,.filters,main,.risks{padding-left:14px;padding-right:14px}
+  .cbody.grid-2,.cbody.grid-3{grid-template-columns:1fr}
   .col+.col{border-left:none;border-top:1px solid var(--border)}
   .risk-grid{grid-template-columns:1fr}
   .hero h1{font-size:26px}
-  .fs-chk,.print-btn{margin-left:0}
+  .edit-btn{margin-left:0}
 }
 @media print{
-  .filters,.print-btn{display:none!important}
+  .filters,.edit-btn,.print-btn,.edit-notice{display:none!important}
+  .notes-row{display:flex!important}
   .cbody{display:grid!important}
-  .cbody.two{grid-template-columns:1fr 2fr}
-  .cbody.three{grid-template-columns:1fr 1.6fr 2fr}
+  .cbody.grid-2{grid-template-columns:1fr 2fr}
+  .cbody.grid-3{grid-template-columns:1fr 2fr 1.7fr}
   .wcard{break-inside:avoid;box-shadow:none!important}
-  body{background:#fff}
-  .phase-row,.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .phase-row,.hero,.banner{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="hero">
-    <div class="hero-eyebrow">Proyecto Tecnológico · 2026</div>
-    <h1>Robot Dispensador<br>de Pastillas</h1>
-    <div class="hero-stats">
-      <div><span class="hero-stat-val">27</span><span class="hero-stat-label">semanas</span></div>
-      <div><span class="hero-stat-val">6</span><span class="hero-stat-label">sesiones grupales</span></div>
-      <div><span class="hero-stat-val">4</span><span class="hero-stat-label">módulos</span></div>
-      <div><span class="hero-stat-val">Ago '26</span><span class="hero-stat-label">meta: sistema funcional</span></div>
-    </div>
-    <div class="info-bar">
-      <span class="info-chip">🗓 Jueves · 1:15–1:55 pm (40 min)</span>
-      <span class="info-chip">👥 6 fines de semana grupales · 10am–5pm</span>
-      <span class="info-chip">🏠 Tareas en casa: trabajo individual entre sesiones</span>
-    </div>
+<div class="hero">
+  <div class="hero-eyebrow">Proyecto Tecnológico · 2026</div>
+  <h1>Robot Dispensador<br>de Pastillas</h1>
+  <div class="hero-stats">
+    <div><span class="hero-stat-val">27</span><span class="hero-stat-label">semanas · Abr–Oct</span></div>
+    <div><span class="hero-stat-val">6</span><span class="hero-stat-label">sesiones grupales</span></div>
+    <div><span class="hero-stat-val">4</span><span class="hero-stat-label">grupos de trabajo</span></div>
+    <div><span class="hero-stat-val">Ago</span><span class="hero-stat-label">meta: sistema funcional</span></div>
   </div>
-  <div class="phase-row">
-    <div class="phase-bar">
-      <div style="flex:3;background:#1D9E75"></div>
-      <div style="flex:4;background:#534AB7"></div>
-      <div style="flex:9;background:#185FA5"></div>
-      <div style="flex:3;background:#B45309"></div>
-      <div style="flex:3;background:#C2410C"></div>
-      <div style="flex:5;background:#3B6D11"></div>
-    </div>
-    <div class="phase-tags">
-      <span class="ptag" style="background:rgba(29,158,117,.2);color:#A7F3D0">Investigación · Sem 1–3</span>
-      <span class="ptag" style="background:rgba(83,74,183,.2);color:#C4B5FD">Diseño · Sem 4–7</span>
-      <span class="ptag" style="background:rgba(24,95,165,.2);color:#93C5FD">Desarrollo · Sem 8–16</span>
-      <span class="ptag" style="background:rgba(180,83,9,.2);color:#FCD34D">Integración · Sem 17–19</span>
-      <span class="ptag" style="background:rgba(194,65,12,.2);color:#FDBA74">Pruebas · Sem 20–22</span>
-      <span class="ptag" style="background:rgba(59,109,17,.2);color:#BBF7D0">Mejora Final · Sem 23–27</span>
-    </div>
+  <div class="info-bar">
+    <span class="info-chip">📅 Jueves · 40 min (clase semanal)</span>
+    <span class="info-chip">🏫 Mar + Mié · 2–4 pm · Colegio (ensamblaje)</span>
+    <span class="info-chip">👥 6 sesiones grupales fin de semana</span>
+    <span class="info-chip">🏠 Tareas en casa por grupo</span>
   </div>
+</div>
+
+<div class="phase-row">
+  <div class="phase-bar">
+    <div style="flex:3;background:#1D9E75"></div>
+    <div style="flex:4;background:#534AB7"></div>
+    <div style="flex:9;background:#185FA5"></div>
+    <div style="flex:3;background:#B45309"></div>
+    <div style="flex:3;background:#C2410C"></div>
+    <div style="flex:5;background:#3B6D11"></div>
+  </div>
+  <div class="phase-tags">
+    <span class="ptag" style="background:rgba(29,158,117,.2);color:#A7F3D0">Investigación · Sem 1–3</span>
+    <span class="ptag" style="background:rgba(83,74,183,.2);color:#C4B5FD">Diseño · Sem 4–7</span>
+    <span class="ptag" style="background:rgba(24,95,165,.2);color:#93C5FD">Desarrollo · Sem 8–16</span>
+    <span class="ptag" style="background:rgba(180,83,9,.2);color:#FCD34D">Integración · Sem 17–19</span>
+    <span class="ptag" style="background:rgba(194,65,12,.2);color:#FDBA74">Pruebas · Sem 20–22</span>
+    <span class="ptag" style="background:rgba(59,109,17,.2);color:#BBF7D0">Mejora Final · Sem 23–27</span>
+  </div>
+</div>
+
+<div class="banner">
+  <div style="width:100%">
+    <div class="banner-title">Cronograma inmediato · Semana del 20 de abril</div>
+    <div class="banner-days" id="bannerDays"></div>
+  </div>
+</div>
 </header>
 
+<div class="specs-bar">
+  <span class="spec">🤖 Arduino Mega · sensores, motores, servos</span>
+  <span class="spec-sep"></span>
+  <span class="spec">🖥 Raspberry Pi 5 · 8 GB · IA y BD</span>
+  <span class="spec-sep"></span>
+  <span class="spec">📏 80 cm alto · 50 cm diámetro</span>
+  <span class="spec-sep"></span>
+  <span class="spec">🖨 Impresión 3D</span>
+  <span class="spec-sep"></span>
+  <span class="spec">🔋 Batería alta capacidad</span>
+  <span class="spec-sep"></span>
+  <span class="spec">🎤 Micrófono + bocina · pantalla táctil</span>
+</div>
+
 <div class="legend-bar">
-  <span class="leg"><span class="leg-dot" style="background:#F59E0B"></span>Sesión grupal presencial</span>
-  <span class="leg"><span class="leg-dot" style="background:#2563EB"></span>Semana actual</span>
+  <span class="leg"><span class="leg-dot" style="background:#2563EB"></span>Movilidad</span>
+  <span class="leg"><span class="leg-dot" style="background:#B45309"></span>Dispensador</span>
+  <span class="leg"><span class="leg-dot" style="background:#7C3AED"></span>App / BD</span>
+  <span class="leg"><span class="leg-dot" style="background:#059669"></span>IA</span>
   <span class="leg-sep"></span>
-  <span class="leg"><span class="leg-dot" style="background:#1D9E75"></span>Investigación</span>
-  <span class="leg"><span class="leg-dot" style="background:#534AB7"></span>Diseño</span>
-  <span class="leg"><span class="leg-dot" style="background:#185FA5"></span>Desarrollo</span>
-  <span class="leg"><span class="leg-dot" style="background:#B45309"></span>Integración</span>
-  <span class="leg"><span class="leg-dot" style="background:#C2410C"></span>Pruebas</span>
-  <span class="leg"><span class="leg-dot" style="background:#3B6D11"></span>Mejora Final</span>
+  <span class="leg"><span class="leg-dot" style="background:#F59E0B"></span>Sesión grupal presencial</span>
+  <span class="leg"><span class="leg-dot" style="background:#3B82F6"></span>Semana actual</span>
+  <span class="leg"><span class="leg-dot" style="background:#D1FAE5"></span>Tarea en casa</span>
 </div>
 
 <div class="filters" id="filters">
@@ -179,14 +236,19 @@ footer{text-align:center;padding:24px;font-size:11px;color:var(--muted);border-t
   <button class="fbtn" data-t="ph" data-v="4">Pruebas</button>
   <button class="fbtn" data-t="ph" data-v="5">Mejora</button>
   &nbsp;
-  <span class="f-label">Equipo:</span>
-  <button class="fbtn on" data-t="rl" data-v="all">Todos</button>
-  <button class="fbtn" data-t="rl" data-v="PROG">💻 Programadores</button>
-  <button class="fbtn" data-t="rl" data-v="DIS">🎨 Diseñadores</button>
-  <button class="fbtn" data-t="rl" data-v="ELEC">⚡ Electrónicos</button>
-  <button class="fbtn" data-t="rl" data-v="ENS">🔧 Ensambladores</button>
+  <span class="f-label">Grupo:</span>
+  <button class="fbtn on" data-t="gr" data-v="all">Todos</button>
+  <button class="fbtn" data-t="gr" data-v="MOV">🔵 Movilidad</button>
+  <button class="fbtn" data-t="gr" data-v="DISP">🟠 Dispensador</button>
+  <button class="fbtn" data-t="gr" data-v="APP">🟣 App / BD</button>
+  <button class="fbtn" data-t="gr" data-v="IA">🟢 IA</button>
   <label class="fs-chk"><input type="checkbox" id="fsOnly"> Solo sesiones grupales</label>
-  <button class="print-btn" onclick="window.print()">🖨 Imprimir / Guardar PDF</button>
+  <button class="edit-btn" id="editBtn" onclick="toggleEdit()">✏ Editar contenido</button>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimir / PDF</button>
+</div>
+
+<div class="edit-notice" id="editNotice">
+  <b>Modo edición activo</b> — Haz clic en cualquier tarea para editar el texto. Las anotaciones y ediciones se guardan automáticamente en este navegador y no se pierden al cerrar la página.
 </div>
 
 <main>
@@ -195,372 +257,467 @@ footer{text-align:center;padding:24px;font-size:11px;color:var(--muted);border-t
 </main>
 
 <section class="risks">
-  <div class="sec-hdr">Recomendaciones del proyecto</div>
+  <div class="sec-hdr">Recomendaciones y gestión del proyecto</div>
   <div class="risk-grid">
     <div class="rcard">
       <div class="rcard-title" style="color:#B45309">⚠ Cuellos de botella críticos</div>
-      <div class="task">Impresión 3D puede tardar 2–4 semanas extra → pedir piezas lo antes posible</div>
-      <div class="task">Integración Arduino ↔ Raspberry Pi es el punto más difícil → investigar comunicación serial desde semana 1</div>
-      <div class="task">API de IA tiene costo → tener alternativa gratuita (Gemini API) lista desde el inicio</div>
-      <div class="task">Mecanismo dispensador: riesgo de atascos → diseñar con tolerancias generosas (+0.5mm)</div>
-      <div class="task">"¿Cómo detecta al paciente?" → definir esto en diseño, no puede quedar sin resolver</div>
+      <div class="rtask">Impresión 3D de piezas grandes (robot de 50 cm) puede tardar 3–5 días → iniciar modelos en sem 4</div>
+      <div class="rtask">Integración Arduino Mega ↔ Raspberry Pi 5 es el punto más complejo → investigar protocolo serial desde sem 1</div>
+      <div class="rtask">API de IA tiene costo → tener Gemini API (gratuita) lista como alternativa desde el inicio</div>
+      <div class="rtask">Batería: robot de ~5 kg necesita batería de alta capacidad bien dimensionada para 2+ horas de autonomía</div>
+      <div class="rtask">Sensor de nivel para pastillas: requiere calibración cuidadosa según tipo y tamaño de pastilla</div>
     </div>
     <div class="rcard">
-      <div class="rcard-title" style="color:#3B6D11">✓ Orden recomendado de módulos</div>
-      <div class="task">1° Dispensador (más mecánico, más tardado, todo depende de que funcione)</div>
-      <div class="task">2° Base de datos y App (es el hub de toda la lógica del sistema)</div>
-      <div class="task">3° Movilidad (puede ir en paralelo con el dispensador)</div>
-      <div class="task">4° IA (integrar al final, cuando BD y app ya estén estables)</div>
-      <div class="task">Regla: ningún módulo puede empezar integración sin pruebas individuales pasando</div>
+      <div class="rcard-title" style="color:#059669">✓ Orden de desarrollo recomendado</div>
+      <div class="rtask">1° Dispensador: es lo más mecánico y tardado; todo depende de que funcione primero</div>
+      <div class="rtask">2° App y BD: es el hub central del sistema; movilidad e IA dependen de la BD</div>
+      <div class="rtask">3° Movilidad: puede desarrollarse en paralelo con el dispensador</div>
+      <div class="rtask">4° IA: integrar al final, cuando la BD ya tenga datos reales que consultar</div>
+      <div class="rtask">Regla fija: ningún grupo entra a integración total sin pruebas individuales superadas</div>
     </div>
     <div class="rcard">
-      <div class="rcard-title" style="color:#C2410C">🔄 Si hay retrasos</div>
-      <div class="task">Retraso en diseño → recortar investigación a 2 semanas en vez de 3</div>
-      <div class="task">Retraso en movilidad → usar robot estático para la demo de agosto; agregar movilidad en Mejora Final</div>
-      <div class="task">Retraso en IA → reemplazar temporalmente con botones en pantalla</div>
-      <div class="task">Reasignar programadores a integración si desarrollo individual se estanca después de semana 13</div>
-      <div class="task">No mover la fecha de FS5 (Meta Agosto): es el hito más importante del proyecto</div>
+      <div class="rcard-title" style="color:#C2410C">🔄 Si hay retrasos en algún grupo</div>
+      <div class="rtask">Movilidad atrasada → demo en agosto con robot estático; agregar ruedas en fase de mejora final</div>
+      <div class="rtask">Dispensador atrasado → reducir a 4 compartimentos para ganar tiempo de fabricación</div>
+      <div class="rtask">IA atrasada → reemplazar con botones en pantalla táctil temporalmente</div>
+      <div class="rtask">App atrasada → máxima prioridad, no puede retrasarse; es la base de todo el sistema</div>
+      <div class="rtask">Las 6 fechas de sesiones grupales son inamovibles: son los únicos puntos de integración real del proyecto</div>
     </div>
     <div class="rcard">
-      <div class="rcard-title" style="color:#185FA5">📋 Claves para llegar a agosto</div>
-      <div class="task">Feature freeze en semana 16: después de esa fecha, cero funciones nuevas</div>
-      <div class="task">Cada módulo necesita 1 responsable de integración (sin vacíos de responsabilidad)</div>
-      <div class="task">Documentar la API de cada módulo antes de la semana de integración</div>
-      <div class="task">Las semanas 10–14 son críticas: no pueden tener retrasos acumulados</div>
-      <div class="task">Cada jueves debe haber al menos 1 demo funcional, aunque sea pequeño</div>
+      <div class="rcard-title" style="color:#185FA5">📋 Claves para llegar funcional en agosto</div>
+      <div class="rtask">Feature freeze total en semana 16: cero funciones nuevas hasta octubre</div>
+      <div class="rtask">Cada grupo necesita un líder que coordine con los otros tres grupos</div>
+      <div class="rtask">Documentar la interfaz de cada módulo antes de la sesión grupal de integración (sem 17)</div>
+      <div class="rtask">Las semanas 10–14 son críticas: retrasos aquí no se recuperan antes de agosto</div>
+      <div class="rtask">Usar Mar + Mié en el colegio exclusivamente para trabajo físico: ensamblaje, soldadura, pruebas mecánicas</div>
+      <div class="rtask">Usar las tareas en casa para avanzar código, diseño 3D, investigación y documentación</div>
     </div>
   </div>
 </section>
 
-<footer>
-  Cronograma · Robot Dispensador de Pastillas · Abril–Octubre 2026 · Equipo de Tecnología
-</footer>
+<footer>Cronograma · Robot Dispensador de Pastillas · Abril–Octubre 2026 · Las ediciones y anotaciones se guardan automáticamente en este navegador.</footer>
 
 <script>
+// ── CONFIG ──
+const TODAY = new Date(2026, 3, 20);
+
+// Banner days
+const SCHED = [
+  {label:'Lun 20 abr', date:new Date(2026,3,20), time:'1:15–1:55 pm',   text:'Clase de coordinación\nRevisión del cronograma', today:true},
+  {label:'Mar 21 abr', date:new Date(2026,3,21), time:'2:00–4:00 pm',   text:'Colegio · Ensamblaje\nCada grupo avanza en físico'},
+  {label:'Mié 22 abr', date:new Date(2026,3,22), time:'2:00–4:00 pm',   text:'Colegio · Ensamblaje\nPrototipo en cartón por grupos'},
+  {label:'Jue 23 abr', date:new Date(2026,3,23), time:'Clase · 40 min', text:'Presentación del prototipo\nen cartón al equipo completo'},
+];
+const bd = document.getElementById('bannerDays');
+SCHED.forEach(s=>{
+  const past = s.date < TODAY && !s.today;
+  const d = document.createElement('div');
+  d.className = 'bday' + (past?' done':'') + (s.today?' today':'');
+  d.innerHTML = `<div class="bday-label">${s.label}</div><div class="bday-time">${s.time}</div><div class="bday-text">${s.text.replace(/\n/g,'<br>')}</div>`;
+  bd.appendChild(d);
+});
+
+// ── DATA ──
 const PH = [
   {n:'Investigación',c:'#1D9E75',bg:'#D1FAE5',tx:'#065F46'},
-  {n:'Diseño',       c:'#534AB7',bg:'#EDE9FE',tx:'#4C1D95'},
+  {n:'Diseño',       c:'#7C3AED',bg:'#EDE9FE',tx:'#4C1D95'},
   {n:'Desarrollo',   c:'#185FA5',bg:'#DBEAFE',tx:'#1E3A8A'},
   {n:'Integración',  c:'#B45309',bg:'#FEF3C7',tx:'#78350F'},
   {n:'Pruebas',      c:'#C2410C',bg:'#FFEDD5',tx:'#7C2D12'},
   {n:'Mejora Final', c:'#3B6D11',bg:'#DCFCE7',tx:'#14532D'},
 ];
-const RL = {
-  PROG:{i:'💻',l:'Programadores',bg:'#DBEAFE',c:'#1E3A8A'},
-  DIS: {i:'🎨',l:'Diseñadores',  bg:'#EDE9FE',c:'#4C1D95'},
-  ELEC:{i:'⚡',l:'Electrónicos', bg:'#FEF9C3',c:'#713F12'},
-  ENS: {i:'🔧',l:'Ensambladores',bg:'#FCE7F3',c:'#831843'},
-  ALL: {i:'👥',l:'Todos',        bg:'#F1F5F9',c:'#1E293B'},
-};
-const MD = {
-  MOV: {l:'Movilidad',  bg:'#DBEAFE',c:'#1E3A8A'},
-  DISP:{l:'Dispensador',bg:'#FEF3C7',c:'#78350F'},
-  APP: {l:'BD / App',   bg:'#EDE9FE',c:'#4C1D95'},
-  IA:  {l:'IA',         bg:'#D1FAE5',c:'#064E3B'},
-  ALL: {l:'Todos',      bg:'#F1F5F9',c:'#1E293B'},
+const GRP = {
+  MOV: {l:'Movilidad',  icon:'🔵',bg:'#DBEAFE',c:'#1E3A8A'},
+  DISP:{l:'Dispensador',icon:'🟠',bg:'#FEF3C7',c:'#78350F'},
+  APP: {l:'App / BD',   icon:'🟣',bg:'#EDE9FE',c:'#4C1D95'},
+  IA:  {l:'IA',         icon:'🟢',bg:'#D1FAE5',c:'#064E3B'},
+  ALL: {l:'Todos',      icon:'⚪',bg:'#F1F5F9',c:'#334155'},
 };
 
-const W=[
+const W = [
   {n:1,d:'3–6 abr',p:0,past:true,
-   thu:['Kickoff: presentar el proyecto completo al equipo','Asignar roles técnicos (diseñador, electrónico, programador, ensamblador) y módulo por persona','Crear grupo WhatsApp, carpeta Drive compartida y cuenta de GitHub'],
-   home:[
-     {r:'PROG',t:['Instalar Python 3, VS Code y Git en tu computadora','Crear cuenta en GitHub, aprender: add → commit → push','Ver tutorial "Python + SQLite básico" en YouTube (30 min)']},
-     {r:'DIS', t:['Instalar TinkerCAD (gratis, online) o Fusion 360 (licencia estudiante)','Ver tutorial básico de TinkerCAD (30 min), modelar una caja simple','Buscar 5 fotos de robots dispensadores como referencia visual']},
-     {r:'ELEC',t:['Descargar Fritzing para diseñar circuitos (gratis)','Buscar y leer datasheet del sensor HC-SR04 y del puente L298N','Hacer inventario de componentes electrónicos disponibles en casa']},
-     {r:'ENS', t:['Ver video: ensamblaje de chasis de robot básico (YouTube, 15 min)','Preparar lista de herramientas disponibles (desarmadores, pinzas, etc.)','Anotar 3 dudas técnicas sobre el ensamblaje del robot']},
+   thu:['Kickoff: presentar el proyecto a todo el equipo','Asignar integrantes a cada grupo: Movilidad, Dispensador, App/BD, IA','Crear grupo de WhatsApp, carpeta en Drive y repositorio en GitHub'],
+   tasks:[
+     {g:'MOV',t:['Investigar motores DC con encoder y ruedas omnidireccionales para un robot de 50 cm de diámetro','Estudiar sensores HC-SR04 (distancia) y sensores IR de piso (detectar bordes)','Investigar el puente L298N para control de motores desde Arduino Mega']},
+     {g:'DISP',t:['Investigar mecanismos de dispensado: carrusel, tornillo sin fin, carril con servo','Medir tamaños reales de pastillas (redondas, ovaladas, cápsulas) para diseñar compartimentos','Investigar sensores de nivel u ópticos para detectar si hay pastilla en el compartimento']},
+     {g:'APP',t:['Explorar SQLite + Python y Flask para la app del robot en Raspberry Pi 5','Investigar cómo conectar y configurar una pantalla táctil en Raspberry Pi 5','Ver ejemplos de interfaz gráfica con Tkinter o PyQt en Raspberry Pi']},
+     {g:'IA',t:['Crear cuenta en OpenAI (revisar precios) y en Gemini de Google (alternativa gratuita)','Hacer primera llamada a la API con Python: enviar pregunta, recibir y mostrar respuesta','Definir qué preguntas debe responder el robot: horarios, efectos secundarios, recordatorios']},
    ]},
   {n:2,d:'10–13 abr',p:0,past:true,
-   thu:['Cada módulo presenta 3 hallazgos clave de su investigación (5 min c/u)','Identificar componentes urgentes que hay que conseguir esta semana','Decidir herramienta de seguimiento: Trello o Notion para el proyecto'],
-   home:[
-     {r:'PROG',t:['Investigar SQLite con Python: crear tabla, insertar, consultar datos','Explorar Flask: crear servidor local con una ruta básica','Investigar API OpenAI: revisar precios, límites y cómo hacer una llamada']},
-     {r:'DIS', t:['Investigar dispensadores de pastillas reales en Amazon/AliExpress','Hacer boceto a mano del robot: vista frontal, lateral y superior con medidas estimadas']},
-     {r:'ELEC',t:['Investigar cómo funciona el puente L298N para motores DC','Investigar servomotor SG90: torque, voltaje, señal PWM','Calcular consumo estimado de corriente del sistema completo']},
-     {r:'ENS', t:['Buscar impresora 3D disponible: ¿biblioteca? ¿colegio? ¿conocido?','Investigar tolerancias de impresión 3D para piezas de ensamblaje mecánico','Hacer lista de materiales de ferretería necesarios (tornillos, adhesivo, etc.)']},
+   thu:['Cada grupo presenta 3 hallazgos clave de su investigación (5 min por grupo)','Identificar componentes urgentes que hay que conseguir cuanto antes','Decidir herramienta de seguimiento de tareas: Trello o lista en Google Sheets'],
+   tasks:[
+     {g:'MOV',t:['Seleccionar motores: calcular torque necesario para mover un robot de aprox. 4–5 kg','Definir arquitectura de ruedas: cuántas, tipo de tracción, capacidad de giro sobre su propio eje','Calcular consumo de corriente estimado de motores + sensores para dimensionar la batería']},
+     {g:'DISP',t:['Calcular dimensiones exactas de los compartimentos con pastillas reales como referencia','Decidir número de compartimentos (se recomienda 6–8 carriles)','Boceto en papel del mecanismo de apertura: ¿cómo libera solo la pastilla activa?']},
+     {g:'APP',t:['Diseñar esquema inicial de BD en papel: tablas Medicamento, Horario, Toma, Perfil','Investigar cómo enviar comandos desde Raspberry Pi 5 a Arduino Mega por puerto serial USB','Boceto de las pantallas principales de la app (papel o Figma)']},
+     {g:'IA',t:['Listar 20 preguntas reales que un paciente podría hacerle al robot','Probar librería speech_recognition de Python con micrófono conectado','Diseñar árbol de decisiones: si el usuario dice X, el sistema responde Y']},
    ]},
   {n:3,d:'17–20 abr',p:0,cur:true,
-   thu:['Consolidar investigación de todos los módulos en un documento compartido','Validar viabilidad técnica de cada módulo: ¿es posible hacerlo en el tiempo?','Resolver las 3 dudas técnicas más críticas antes de pasar a diseño'],
-   home:[
-     {r:'PROG',t:['Hacer script Python que llama a la API OpenAI y muestra la respuesta','Diseñar esquema de BD en papel o en dbdiagram.io (tablas, relaciones)','Instalar Raspberry Pi OS en tarjeta SD (imagen disponible gratis en raspberrypi.com)']},
-     {r:'DIS', t:['Iniciar modelo 3D del chasis en TinkerCAD (solo forma externa, sin detalles)','Definir dimensiones exactas del robot: ancho, largo, alto']},
-     {r:'ELEC',t:['Diseñar en papel el circuito de movilidad: Arduino + L298N + 2 motores DC','Verificar si tienen los componentes necesarios o qué hay que comprar']},
-     {r:'ENS', t:['Preparar BOM (lista de materiales) con cantidades y costo estimado','Confirmar quién puede conseguir la impresora 3D y para cuándo']},
+   thu:['Consolidar investigación de los 4 grupos en un documento compartido en Drive','Validar viabilidad técnica de cada módulo: ¿es realizable en el tiempo?','Revisión interna del prototipo en cartón antes de la presentación del jueves 24'],
+   tasks:[
+     {g:'MOV',t:['Lista definitiva de materiales (BOM) para movilidad con precios en Guatemala','Confirmar quién consigue los motores y sensores, y en qué tienda o plataforma','Prototipo en cartón: modelar base circular de 50 cm con posición de ruedas y sensores']},
+     {g:'DISP',t:['Lista definitiva de materiales del dispensador con costo estimado','Prototipo en cartón: construir 1 compartimento funcional a escala real y verificar que la pastilla entra y sale','Confirmar el mecanismo de apertura votando entre las opciones investigadas']},
+     {g:'APP',t:['Esquema de BD final validado por el grupo (en papel o dbdiagram.io)','Instalar Python 3, SQLite, Flask y dependencias en la Raspberry Pi 5','Prototipo en cartón: diseñar la "cara" del robot con posición de pantalla táctil']},
+     {g:'IA',t:['Catálogo definitivo de 15–20 comandos de voz que el robot reconocerá','Script Python funcional: usuario habla → reconoce texto → llama a API → muestra respuesta','Prototipo en cartón: definir posición del micrófono y la bocina en el cuerpo del robot']},
+     {g:'ALL',t:['Presentación del prototipo en cartón completo el jueves 24 abr: cada grupo explica su parte']},
    ]},
+
   {n:4,d:'24–27 abr',p:1,
-   thu:['Revisión grupal de bocetos e ideas de diseño (cada uno comparte pantalla o foto)','Feedback cruzado: ¿el diseño de un módulo afecta a otro?','Confirmar lista de piezas que van a imprimirse en 3D vs comprarse'],
-   home:[
-     {r:'PROG',t:['Implementar CRUD básico: agregar, listar y editar medicamentos en SQLite','Diseñar wireframes de la app en Figma (gratis) o en papel']},
-     {r:'DIS', t:['Continuar modelado 3D del chasis: agregar soporte de ruedas y motores','Modelar primer compartimento del dispensador en 3D']},
-     {r:'ELEC',t:['Diseñar en Fritzing el esquema eléctrico completo de movilidad','Hacer lista de componentes con precios en MercadoLibre o AliExpress']},
-     {r:'ENS', t:['Investigar técnicas de unión para piezas impresas en 3D (tornillos vs pegamento epoxi)','Ver tutorial de cómo limar y preparar piezas impresas en 3D para ensamblar']},
+   thu:['Presentación del prototipo en cartón ante el equipo completo','Feedback cruzado: ¿las partes de cada grupo encajan físicamente entre sí?','Decidir qué partes van a impresión 3D y qué partes se compran o adaptan'],
+   tasks:[
+     {g:'MOV',t:['Diseñar el chasis en TinkerCAD: base circular de 50 cm, soportes de motores y ruedas','Diseñar plano eléctrico del sistema de movilidad: Arduino Mega + L298N + motores + batería']},
+     {g:'DISP',t:['Modelado 3D del primer carril del dispensador con medidas exactas de las pastillas reales','Diseñar en 3D el mecanismo de apertura: servo + brazo empujador o compuerta deslizante']},
+     {g:'APP',t:['Implementar estructura de BD: crear tablas, insertar datos de prueba, hacer consulta simple','Diseñar wireframes definitivos de la app en Figma (cuenta gratuita disponible)']},
+     {g:'IA',t:['Diseñar flujo de datos: cómo la IA consulta la BD y usa los datos para responder','Definir el formato de las respuestas: texto en pantalla, voz por bocina, o ambos']},
    ]},
   {n:5,d:'1–4 may',p:1,
-   thu:['Revisión de avance de modelos 3D (compartir pantalla desde TinkerCAD)','Validar esquema de BD: ¿están todas las tablas necesarias?','¿Quién hace el pedido de componentes electrónicos esta semana?'],
-   home:[
-     {r:'PROG',t:['Implementar pantalla de horarios básica con Tkinter o Flask','Conectar app con SQLite: mostrar medicamentos ya registrados']},
-     {r:'DIS', t:['Modelar todos los compartimentos del dispensador (6 unidades)','Modelar mecanismo de apertura controlado por servo (brazo o palanca)']},
-     {r:'ELEC',t:['Diseñar esquema eléctrico del dispensador: servo + sensor de pastilla','Hacer pedido de componentes que faltan (considerar tiempo de envío)']},
-     {r:'ENS', t:['Calcular tiempo de impresión 3D de cada pieza','Hacer cronograma de impresiones: ¿qué se imprime primero y por qué?']},
+   thu:['Revisar avance de modelos 3D (compartir pantalla desde TinkerCAD)','Confirmar el esquema eléctrico de movilidad con todos los grupos','Hacer el pedido de componentes electrónicos urgentes esta semana (considerar tiempo de envío)'],
+   tasks:[
+     {g:'MOV',t:['Modelado 3D del chasis: agregar soportes para sensores HC-SR04 laterales y sensores IR inferiores','Calcular y seleccionar la batería: voltaje necesario, capacidad en mAh para 2+ horas de autonomía']},
+     {g:'DISP',t:['Modelar los 6–8 compartimentos completos del dispensador en 3D','Modelar la estructura interna que sostiene el dispensador dentro del cuerpo del robot (80 cm de altura)']},
+     {g:'APP',t:['Implementar CRUD completo de medicamentos: agregar, listar, editar y eliminar','Pantalla de horarios: mostrar próxima toma con cuenta regresiva en tiempo real']},
+     {g:'IA',t:['Implementar función que extrae el contexto de la BD y lo envía a la API: "Tomas metformina a las 8 am"','Probar: "¿qué pastilla me toca?" → IA responde con datos reales de la BD del robot']},
    ]},
   {n:6,d:'8–11 may',p:1,
-   thu:['Validar diseños finales antes de mandar a imprimir: ¿todos aprueban?','Revisar esquemas eléctricos con el equipo de electrónica','Confirmar presupuesto total y hacer pedidos urgentes hoy'],
-   home:[
-     {r:'PROG',t:['Implementar estructura completa de la app (todas las pantallas, sin lógica aún)','Configurar pantalla táctil en Raspberry Pi y probar que muestra algo']},
-     {r:'DIS', t:['Ajustar modelos 3D con feedback del jueves, exportar archivos STL','Hacer render del robot completo para mostrar al equipo']},
-     {r:'ELEC',t:['Revisar voltajes y corrientes del circuito completo: ¿hay riesgo de quemar algo?','Preparar lista de materiales final con cantidades exactas para comprar']},
-     {r:'ENS', t:['Iniciar impresión 3D de las primeras piezas si hay acceso a impresora','Organizar el área de trabajo: mesa limpia, herramientas ordenadas']},
+   thu:['Validar todos los diseños 3D antes de mandar a imprimir (revisión final sin cambios después)','Revisar el esquema eléctrico completo con todos los grupos','Confirmar presupuesto total y hacer pedidos de lo que falta'],
+   tasks:[
+     {g:'MOV',t:['Ajustar modelo 3D del chasis con el feedback del jueves y exportar archivos STL para impresión','Documentar asignación de pines del Arduino Mega para movilidad (para evitar conflictos con dispensador)']},
+     {g:'DISP',t:['Ajustar tolerancias de compartimentos (+0.5 mm) para que la impresión 3D encaje correctamente','Documentar asignación de pines del Arduino Mega para el dispensador (servos y sensores)']},
+     {g:'APP',t:['Implementar alarma: cuando llega la hora, la pantalla muestra alerta y suena la bocina del robot','Conectar app con Arduino Mega por serial: probar envío del comando "DISPENSA_1" y verificar que se ejecuta']},
+     {g:'IA',t:['Implementar reconocimiento continuo de voz: el robot escucha, detecta el comando y responde','Implementar texto a voz: la respuesta de la IA se escucha por la bocina del robot']},
    ]},
   {n:7,d:'15–18 may',p:1,
-   fs:{l:'Sesión Grupal 1 · Sprint de Diseño & Setup',s:'Sáb 17 + Dom 18 mayo · 10am–5pm',tasks:[
-     {m:'ALL',t:['Iniciar impresión 3D del chasis (dejarlo corriendo todo el día)','Crear estructura del repositorio GitHub, cada programador hace su primer commit']},
-     {m:'ALL',t:['Configurar Raspberry Pi: instalar OS, Python, SQLite y todas las dependencias']},
-     {m:'ELEC',t:['Construir circuito de movilidad en protoboard y probar que el motor gira','Verificar que todos los componentes llegaron y funcionan correctamente']},
-     {m:'DIS',t:['Validar primera pieza impresa: ¿dimensiones correctas? ¿encaja?','Ajustar modelos si hay errores de tolerancia (reimprimir si es necesario)']},
-     {m:'ENS',t:['Organizar todos los componentes en contenedores etiquetados por módulo']},
+   fs:{l:'Sesión Grupal 1 · Sprint de Diseño y Setup',s:'Sáb 17 + Dom 18 mayo · 10 am–5 pm',tasks:[
+     {g:'ALL',t:['Iniciar impresión 3D del chasis (se puede dejar corriendo todo el día)','Crear estructura del repositorio en GitHub: cada grupo sube su código base con un primer commit']},
+     {g:'MOV',t:['Armar circuito de movilidad en protoboard: Arduino Mega → L298N → 2 motores; verificar que giran']},
+     {g:'DISP',t:['Construir primer carril físico con piezas impresas','Probar que el servo abre y cierra la compuerta con código básico de prueba']},
+     {g:'APP',t:['Configurar pantalla táctil en Raspberry Pi 5: instalar drivers y mostrar la app corriendo']},
+     {g:'IA',t:['Demo: usuario habla → robot reconoce → consulta BD → responde en texto y voz']},
    ]},
-   thu:['Aprobación FINAL de todos los diseños (después de esto no se cambia nada)','Asignar tareas concretas para la sesión grupal del fin de semana','Confirmar asistencia de TODOS para el sábado'],
-   home:[
-     {r:'PROG',t:['Investigar comunicación serial Python ↔ Arduino: ver tutorial de pyserial']},
-     {r:'DIS', t:['Preparar archivos STL de todas las piezas pendientes de imprimir']},
-     {r:'ELEC',t:['Preparar protoboard, cables y componentes para el sprint del fin de semana']},
-     {r:'ENS', t:['Preparar herramientas y espacio de trabajo para el sprint del fin de semana']},
+   thu:['Aprobación final de todos los diseños 3D (después de este jueves no se cambia nada)','Asignar tareas concretas para el sprint del sábado y domingo','Confirmar asistencia de todo el equipo al sprint del fin de semana'],
+   tasks:[
+     {g:'MOV',t:['Preparar protoboard, cables y componentes listos para el sprint del sábado']},
+     {g:'DISP',t:['Tener los archivos STL de las piezas del dispensador listos para imprimir durante el sprint']},
+     {g:'APP',t:['Preparar Raspberry Pi 5: app instalada, BD con datos de prueba y pantalla táctil conectada']},
+     {g:'IA',t:['Preparar demo de reconocimiento de voz + respuesta API para mostrar en el sprint']},
    ]},
+
   {n:8,d:'22–25 may',p:2,
-   thu:['Demo: Raspberry Pi configurada, la app básica corre en pantalla','Reportar estado de piezas impresas: ¿cuántas listas? ¿cuántas faltan?','Objetivo claro para semana 10: el robot se mueve con código básico'],
-   home:[
-     {r:'PROG',t:['Programar en Arduino: funciones forward(), backward(), turnLeft(), turnRight()','Implementar comunicación serial: Raspberry Pi envía un comando, Arduino lo ejecuta']},
-     {r:'DIS', t:['Continuar impresiones 3D, verificar piezas terminadas','Imprimir soporte para la pantalla táctil y para la Raspberry Pi']},
-     {r:'ELEC',t:['Soldar o asegurar conexiones del circuito de movilidad (sin protoboard)','Instalar sensor HC-SR04 en el chasis con el soporte impreso']},
-     {r:'ENS', t:['Ensamblar soporte de motores al chasis si las piezas ya están listas','Probar que las ruedas giran libremente sin fricciones']},
+   thu:['Demo: la app corre en la pantalla táctil del robot sin laptop externa','Reportar estado de piezas 3D: ¿cuántas están terminadas? ¿cuántas faltan?','Objetivo para semana 10: robot se mueve por comandos desde Raspberry Pi 5'],
+   tasks:[
+     {g:'MOV',t:['Programar en Arduino Mega: funciones forward(), backward(), turnLeft(), turnRight() con PWM','Implementar lectura de sensores IR inferiores: detectar cambio de superficie o borde','Prueba básica: motor gira al recibir texto por puerto serial (ej: "MOV_F")']},
+     {g:'DISP',t:['Ensamblar todos los compartimentos del dispensador con las piezas ya impresas','Calibrar sensor de nivel: detectar si hay pastilla presente y enviar la señal al Arduino Mega']},
+     {g:'APP',t:['Implementar pantalla de horarios semanal: ver qué pastilla toca cada día y a qué hora','Implementar módulo de registro de toma: el usuario confirma "tomé la pastilla" y queda guardado en la BD']},
+     {g:'IA',t:['Implementar comando de voz: "registrar nuevo medicamento" → IA guía al usuario y guarda en BD','Mejorar el prompt del sistema: incluir nombre del paciente y lista de medicamentos activos como contexto']},
    ]},
   {n:9,d:'29 may–1 jun',p:2,
-   thu:['Demo: motor gira con código Python enviado desde Raspberry Pi','Demo: sensor HC-SR04 lee distancia y la muestra en el monitor serial','Priorizar y resolver 1 problema técnico del equipo en los 40 minutos de clase'],
-   home:[
-     {r:'PROG',t:['Calibrar velocidad de motores con PWM para que el robot vaya recto','Implementar evasión básica de obstáculos: para, gira 90°, continúa']},
-     {r:'DIS', t:['Imprimir carcasa exterior del robot y soportes para sensores laterales']},
-     {r:'ELEC',t:['Instalar segundo sensor IR para detectar bordes o caídas','Verificar asignación de todos los pines del Arduino: sin conflictos']},
-     {r:'ENS', t:['Ensamblar chasis completo si todas las piezas están disponibles','Documentar el proceso de ensamblaje con fotos paso a paso']},
+   thu:['Demo: motor gira al enviar comando desde Raspberry Pi 5 por cable serial','Demo: sensor HC-SR04 detecta obstáculo y el dato aparece en la pantalla del robot','¿Los compartimentos del dispensador están ensamblados y el servo abre correctamente?'],
+   tasks:[
+     {g:'MOV',t:['Implementar evasión de obstáculos: robot para al detectar obstáculo, gira 90°, retoma la ruta','Calibrar giro: el robot debe girar exactamente 90° usando encoders o temporizador calibrado']},
+     {g:'DISP',t:['Prueba real del dispensador: dispensar 10 pastillas consecutivas y registrar cuántas salen bien','Ajustar mecánica si hay atascos: agrandar tolerancias o suavizar el mecanismo de empuje del servo']},
+     {g:'APP',t:['Implementar comando "DISPENSA_X" enviado al Arduino cuando llega la hora de una toma','Implementar pantalla de confirmación: "¿Tomaste tu pastilla?" con botones Sí / No / Más tarde']},
+     {g:'IA',t:['Implementar respuestas a preguntas de salud frecuentes: efectos secundarios, interacciones, dosis','Probar flujo completo: voz del usuario → reconocimiento → consulta BD → respuesta hablada por bocina']},
    ]},
   {n:10,d:'5–8 jun',p:2,
-   thu:['Demo: robot evita un obstáculo simple (aunque sea tosco, que funcione)','Reportar estado del dispensador físico: ¿qué piezas faltan?','¿La app muestra datos de la BD correctamente? ¿La app corre en la pantalla del robot?'],
-   home:[
-     {r:'PROG',t:['Implementar pantalla de registro de medicamentos completa en la app','Implementar pantalla de horarios con días de la semana','Programar en Arduino la lógica de dispensado por horario']},
-     {r:'DIS', t:['Imprimir todas las piezas del dispensador: carriles y mecanismo de apertura']},
-     {r:'ELEC',t:['Conectar servo del dispensador al Arduino y probar apertura básica']},
-     {r:'ENS', t:['Ensamblar primer carril completo del dispensador','Probar que una pastilla real pasa por el carril sin atascarse']},
+   thu:['Demo: robot detecta y evita un obstáculo en el suelo (aunque sea sencillo)','Demo: dispensador libera la pastilla correcta al recibir el comando correcto de la app','¿La comunicación serial Raspberry Pi 5 ↔ Arduino Mega funciona sin errores durante 5 min?'],
+   tasks:[
+     {g:'MOV',t:['Implementar modo "ir a destino fijo": el robot navega de punto A a punto B en la casa evitando obstáculos','Prueba en entorno real: pasillo de casa o colegio; medir distancia recorrida vs esperada']},
+     {g:'DISP',t:['Implementar alerta visual y sonora cuando un compartimento queda vacío','Prueba del ciclo completo: hora llega → Arduino activa servo → pastilla cae → sensor confirma el dispensado']},
+     {g:'APP',t:['Implementar historial de tomas: ver los últimos 7 días con estado (tomada, omitida o pendiente)','Implementar notificación cuando el robot llega al destino: alerta visual en pantalla y sonido']},
+     {g:'IA',t:['Implementar memoria de sesión: la IA mantiene el contexto durante la misma conversación','Implementar: "¿cuándo fue la última vez que tomé X?" con datos reales del historial de la BD']},
    ]},
   {n:11,d:'12–15 jun',p:2,
-   fs:{l:'Sesión Grupal 2 · Sprint de Desarrollo I',s:'Sáb 14 + Dom 15 junio · 10am–5pm',tasks:[
-     {m:'MOV',t:['Prueba completa de movilidad en el robot ensamblado (no en protoboard)','Calibrar giro de 90° exacto, ajustar velocidad de crucero']},
-     {m:'DISP',t:['Ensamblar el dispensador completo con todos los compartimentos (6 carriles)','Prueba real: dispensar una pastilla a la hora programada, 10 veces seguidas']},
-     {m:'APP',t:['Demo: la app controla el dispensador directamente desde la pantalla del robot']},
-     {m:'ALL',t:['Primera integración parcial: movilidad + dispensador en el mismo robot físico','Prueba: Raspberry Pi envía orden a Arduino sin errores durante 5 minutos']},
+   fs:{l:'Sesión Grupal 2 · Sprint de Desarrollo I',s:'Sáb 14 + Dom 15 junio · 10 am–5 pm',tasks:[
+     {g:'MOV',t:['Prueba de movilidad completa en el chasis real ensamblado (no en mesa de trabajo)','Calibrar giro de 90° y velocidad de crucero para el peso real del robot ensamblado']},
+     {g:'DISP',t:['Ensamblar el dispensador completo dentro del cuerpo real del robot','Prueba real: dispensar 20 veces seguidas → meta: máximo 1 error en 20 intentos']},
+     {g:'APP',t:['App corriendo autónomamente en la pantalla táctil del robot, controlando el dispensador por serial']},
+     {g:'ALL',t:['Primera integración física: movilidad + dispensador + app funcionando juntos en el mismo robot','Prueba de flujo: alarma suena → robot navega → llega al usuario → dispensa → pantalla confirma']},
    ]},
-   thu:['Preparar tareas y objetivo del sprint grupal del fin de semana','Confirmar que cada módulo tiene algo funcionando para mostrar en el sprint'],
-   home:[
-     {r:'PROG',t:['Implementar detección de pastilla agotada usando el sensor óptico','Implementar alerta visual de recarga en pantalla de la app']},
-     {r:'ELEC',t:['Revisar y reforzar todas las conexiones del robot después del sprint']},
-     {r:'ENS', t:['Documentar estado del ensamblaje con fotos después del sprint']},
+   thu:['Preparar tareas concretas para el sprint del fin de semana','Confirmar que cada grupo tiene algo funcional para demostrar el sábado'],
+   tasks:[
+     {g:'MOV',t:['Documentar los problemas de movilidad de la semana para resolverlos en el sprint del sábado']},
+     {g:'DISP',t:['Llevar el dispensador ensamblado con pastillas de prueba al sprint del sábado']},
+     {g:'APP',t:['Preparar la app con el flujo completo de alarma → dispensar → confirmar para mostrar en el sprint']},
+     {g:'IA',t:['Preparar demo de reconocimiento de voz en un ambiente con algo de ruido de fondo para el sprint']},
    ]},
   {n:12,d:'19–22 jun',p:2,
-   thu:['Demo: dispensador libera la pastilla correcta según el horario configurado','Demo: app registra "pastilla tomada" y lo guarda en historial','Identificar y priorizar los 3 bugs más importantes encontrados esta semana'],
-   home:[
-     {r:'PROG',t:['Implementar reconocimiento de voz básico con la librería speech_recognition','Conectar módulo de IA: usuario hace pregunta, IA responde usando datos de la BD','Implementar modo "navegar a habitación fija" en el módulo de movilidad']},
-     {r:'DIS', t:['Modelar y comenzar impresión de la carcasa exterior final del robot']},
-     {r:'ELEC',t:['Probar estabilidad de conexiones cuando el robot está en movimiento']},
-     {r:'ENS', t:['Asegurar y proteger cables sueltos dentro del chasis del robot']},
+   thu:['Demo: dispensador libera la pastilla correcta según el horario configurado en la app','Demo: app registra "pastilla tomada" y se guarda en el historial de la BD','Priorizar los 3 bugs más críticos encontrados en el sprint de integración anterior'],
+   tasks:[
+     {g:'MOV',t:['Refinar evasión de obstáculos: manejar objetos a distintas alturas (sillas, pies de cama, mascotas)','Prueba en múltiples superficies: piso cerámico, madera, alfombra, umbral de puerta']},
+     {g:'DISP',t:['Optimizar mecanismo: reducir ruido del servo y suavizar la apertura de la compuerta','Implementar log de dispensados en la BD: fecha, hora, número de compartimento, resultado (éxito o error)']},
+     {g:'APP',t:['Implementar perfil del paciente: nombre, médico tratante, alergias conocidas','Implementar alerta de recarga: avisar cuando queden menos de 3 pastillas en un compartimento']},
+     {g:'IA',t:['Implementar respuesta cuando la IA no entiende: "No entendí, ¿puedes repetirlo?" con sugerencias','Implementar comando: "Llama al doctor" → muestra el número del médico configurado en pantalla']},
    ]},
   {n:13,d:'26–29 jun',p:2,
-   thu:['Demo: usuario pregunta a la IA por voz y recibe respuesta correcta','Revisión general con semáforo: ¿qué módulos están en verde, amarillo o rojo?','¿Algo debe simplificarse antes de agosto? Decisión en clase hoy'],
-   home:[
-     {r:'PROG',t:['Implementar comando de voz: "¿qué pastilla me toca?"','Implementar comando de voz: "registrar nuevo medicamento"','Implementar historial de tomas con filtro por fecha']},
-     {r:'ELEC',t:['Diseñar el circuito de alimentación unificado (1 batería central para todo)']},
-     {r:'DIS', t:['Finalizar modelo de carcasa exterior, preparar para impresión definitiva']},
-     {r:'ENS', t:['Revisar y reforzar uniones mecánicas que muestren desgaste con el uso']},
+   thu:['Demo: usuario hace pregunta de salud por voz y la IA responde con datos reales del paciente','Semáforo de estado de cada grupo: verde = completo, amarillo = falta poco, rojo = atrasado','¿Debe simplificarse algo para garantizar llegar funcional en agosto? Decisión grupal hoy'],
+   tasks:[
+     {g:'MOV',t:['Implementar modo de espera: el robot detiene motores y baja sensores cuando no tiene tarea activa','Medir autonomía real de la batería en uso activo (navegar + sensores encendidos)']},
+     {g:'DISP',t:['Prueba de ciclo semanal: simular 3 tomas diarias por 7 días = 21 dispensados, documentar errores','Verificar que el log en la BD registra correctamente todos los dispensados']},
+     {g:'APP',t:['Implementar módulo de reportes: resumen semanal de pastillas tomadas vs omitidas','Refinar la interfaz táctil: botones más grandes, flujo más claro, mensajes de error descriptivos']},
+     {g:'IA',t:['Conectar la IA al historial de tomas: respuestas personalizadas según el comportamiento del paciente','Implementar alerta inteligente: si pasan 15 min sin confirmar la toma, el robot pregunta de nuevo']},
    ]},
   {n:14,d:'3–6 jul',p:2,
-   fs:{l:'Sesión Grupal 3 · Sprint de Desarrollo II',s:'Sáb 5 + Dom 6 julio · 10am–5pm',tasks:[
-     {m:'ALL',t:['Todos los módulos corriendo en el robot ensamblado (sin computadoras externas)','Documentar la API de cada módulo: ¿qué comando envía y qué respuesta espera?']},
-     {m:'MOV',t:['Prueba de navegación: robot va de punto A a punto B en un pasillo real']},
-     {m:'DISP',t:['Prueba de 20 dispensados consecutivos: registrar cantidad de errores y causas']},
-     {m:'APP',t:['App corriendo en la pantalla táctil del robot, sin ninguna computadora externa']},
-     {m:'IA',t:['Flujo completo: usuario habla → IA entiende → robot navega → dispensa → confirma']},
+   fs:{l:'Sesión Grupal 3 · Sprint de Desarrollo II',s:'Sáb 5 + Dom 6 julio · 10 am–5 pm',tasks:[
+     {g:'ALL',t:['Todos los módulos corriendo juntos en el robot ensamblado (sin laptops ni cables externos)','Documentar la API de cada módulo: comandos que envía, respuestas que espera, con ejemplos reales']},
+     {g:'MOV',t:['Prueba de navegación: robot va de la sala al dormitorio (aprox. 8–10 m) evitando obstáculos reales']},
+     {g:'DISP',t:['Prueba de resistencia: 30 dispensados en 1 hora → meta: 0 atascos, sensor confirma todos']},
+     {g:'APP',t:['App autónoma en Raspberry Pi 5: arranca sola al encender el robot, sin intervención manual']},
+     {g:'IA',t:['Flujo end-to-end: encender robot → voz del usuario → robot navega → dispensa → IA confirma en voz']},
    ]},
-   thu:['Reportar estado de cada módulo (semáforo verde/amarillo/rojo)','Preparar tareas del sprint grupal del fin de semana','Feature FREEZE parcial: ya no se agregan funciones a movilidad ni dispensador'],
-   home:[
-     {r:'PROG',t:['Resolver los bugs encontrados en el sprint del fin de semana','Implementar el controlador central (orquestador) en Raspberry Pi']},
-     {r:'ELEC',t:['Ensamblar circuito de alimentación unificado y probar con carga completa']},
-     {r:'DIS', t:['Finalizar impresión de la carcasa exterior y prepararla para instalar']},
+   thu:['Reportar estado de cada grupo con el semáforo de colores','Feature FREEZE parcial: movilidad y dispensador ya no reciben funciones nuevas a partir de hoy','Asignar correcciones de bugs encontrados en el sprint para resolver en casa'],
+   tasks:[
+     {g:'ALL',t:['Resolver bugs críticos del sprint del fin de semana','Documentar la API de tu módulo en el Drive compartido antes del próximo viernes']},
    ]},
   {n:15,d:'10–13 jul',p:2,
-   thu:['Demo: al menos 3 módulos comunicándose entre sí en el robot','Priorizar bugs de integración encontrados en el sprint anterior','Verificar documentación de cada módulo: ¿está actualizada en el Drive?'],
-   home:[
-     {r:'PROG',t:['Resolver bugs de comunicación entre módulos','Implementar función completa: robot sale a buscar al paciente cuando llega la hora','Implementar alerta sonora cuando el robot llega al destino']},
-     {r:'ELEC',t:['Probar duración de batería con todo el sistema encendido: ¿cuánto dura?']},
-     {r:'ENS', t:['Preparar el robot para instalar la carcasa final']},
+   thu:['Demo: 3 módulos comunicándose sin errores durante 5 minutos continuos','Verificar documentación de API de cada módulo: ¿está completa y actualizada en el Drive?','Acordar el protocolo de comunicación final: no se modifica después de este jueves'],
+   tasks:[
+     {g:'MOV',t:['Prueba de resistencia: robot en operación continua por 3 horas; documentar problemas mecánicos y de batería','Documentar todos los pines del Arduino Mega usados por movilidad (para coordinar con dispensador)']},
+     {g:'DISP',t:['Prueba de resistencia: 50 dispensados en condiciones normales; registrar tasa de error final','Documentar pines del Arduino Mega usados por el dispensador']},
+     {g:'APP',t:['Optimizar la comunicación serial: manejar errores, timeouts, reconexión automática si el cable se desconecta','Documentar todos los endpoints y comandos de la app para la integración total']},
+     {g:'IA',t:['Optimizar tiempo de respuesta: de la pregunta del usuario a la respuesta hablada, menos de 3 segundos','Documentar todos los comandos de voz soportados y las respuestas esperadas por la IA']},
    ]},
   {n:16,d:'17–20 jul',p:2,
-   thu:['FEATURE FREEZE TOTAL: la lista de funciones queda cerrada definitivamente','Revisión: ¿todos los módulos tienen su funcionalidad core terminada?','Preparar plan detallado para el sprint de integración total (semana 17)'],
-   home:[
-     {r:'PROG',t:['Documentar todo el código: comentarios claros y README actualizado en GitHub','Preparar el orquestador central para la integración total del sprint siguiente']},
-     {r:'ELEC',t:['Ensamblar el circuito final permanente (soldar bien todas las conexiones)']},
-     {r:'ENS', t:['Preparar robot para ensamblaje final: limpiar piezas, tener tornillos y adhesivos listos']},
-     {r:'DIS', t:['Últimos ajustes estéticos del robot antes del ensamblaje final definitivo']},
+   thu:['FEATURE FREEZE TOTAL: la lista de funciones queda cerrada definitivamente','¿Cada grupo tiene su funcionalidad core al 100%? Si no, ¿qué falta exactamente y quién lo resuelve?','Preparar plan detallado de trabajo para el sprint de integración total de la semana 17'],
+   tasks:[
+     {g:'ALL',t:['Código en estado "listo para integración": sin ramas sin mergear, todo en la rama principal de GitHub']},
+     {g:'MOV',t:['Ensamblar el circuito de movilidad de forma permanente (soldar o asegurar, no protoboard) antes del sprint']},
+     {g:'DISP',t:['Verificar que el dispensador funciona correctamente dentro del cuerpo del robot, no en banco aparte']},
+     {g:'APP',t:['El orquestador central en Raspberry Pi 5 debe estar listo para recibir y coordinar todos los módulos']},
+     {g:'IA',t:['La IA debe funcionar integrada con la BD sin necesidad de intervención manual para el sprint']},
    ]},
+
   {n:17,d:'24–27 jul',p:3,
-   fs:{l:'Sesión Grupal 4 · Sprint de Integración Total',s:'Sáb 26 + Dom 27 julio · 10am–5pm',tasks:[
-     {m:'ALL',t:['Ensamblaje final del robot completo: carcasa + circuitos + pantalla + todos los sensores']},
-     {m:'ALL',t:['Integración total: todos los módulos funcionando juntos en el robot físico','Prueba del flujo completo: "es hora de tu pastilla" → robot va → dispensa → confirma']},
-     {m:'ELEC',t:['Verificar alimentación: el sistema funciona sin cortes durante al menos 2 horas']},
-     {m:'DIS',t:['Pintura y acabado estético final del robot (logo del equipo, colores)']},
+   fs:{l:'Sesión Grupal 4 · Sprint de Integración Total',s:'Sáb 26 + Dom 27 julio · 10 am–5 pm',tasks:[
+     {g:'ALL',t:['Ensamblaje final del robot completo: carcasa 3D + circuitos + pantalla táctil + micrófono + bocina + batería']},
+     {g:'ALL',t:['Integración total: los 4 módulos funcionando juntos en el robot físico definitivo','Meta del sprint: el flujo completo funciona de punta a punta al menos 3 veces sin errores críticos']},
+     {g:'APP',t:['Verificar que el orquestador en Raspberry Pi 5 coordina correctamente a los 4 módulos sin errores']},
+     {g:'MOV',t:['Verificar que el robot navega correctamente con el peso real de la carcasa y todos los componentes instalados']},
    ]},
-   thu:['Preparar la lista de tareas del sprint de integración con responsable por cada tarea','Confirmar que TODOS asisten al sprint: es el más crítico de todo el proyecto'],
-   home:[
-     {r:'PROG',t:['Preparar el orquestador central listo para la integración total']},
-     {r:'ELEC',t:['Verificar y preparar cables y conexiones para el ensamblaje final']},
+   thu:['Preparar lista de responsabilidades para el sprint: qué hace exactamente cada grupo el sábado','Todo el equipo debe asistir al sprint de integración: es el más crítico de todo el proyecto','¿Falta algún componente físico? Comprarlo antes del jueves sin falta'],
+   tasks:[
+     {g:'ALL',t:['Llevar todos los materiales y herramientas necesarias para el sprint de integración total del sábado']},
    ]},
   {n:18,d:'31 jul–3 ago',p:3,
-   thu:['Demo del robot integrado completo (aunque tenga bugs, que corra)','Lista de bugs encontrados: priorizar los que DEBEN arreglarse antes de agosto','Asignar cada corrección a una persona concreta para que la resuelva en casa'],
-   home:[
-     {r:'PROG',t:['Resolver los 3 bugs más críticos de la integración','Optimizar el código: reducir tiempos de respuesta']},
-     {r:'ELEC',t:['Reforzar las conexiones inestables encontradas durante la integración']},
-     {r:'ALL', t:['Documentar el sistema: diagrama de arquitectura técnica y manual de usuario básico']},
+   thu:['Demo del robot integrado completo (bugs permitidos, lo importante es que arranque y corra)','Priorizar bugs del sprint: ¿cuáles deben estar resueltos antes del 23 de agosto sin falta?','Asignar cada bug a un grupo concreto y a una persona responsable por nombre'],
+   tasks:[
+     {g:'MOV',t:['Resolver bugs de movimiento encontrados durante la integración total','Ajustar velocidades y sensibilidad de sensores para el peso real del robot completamente ensamblado']},
+     {g:'DISP',t:['Resolver bugs del dispensador que aparecen al tenerlo dentro del robot ensamblado (vibración, posición)']},
+     {g:'APP',t:['Resolver bugs de comunicación serial descubiertos en la integración total','Optimizar el orquestador: manejar errores, reintentos automáticos y estados del sistema']},
+     {g:'IA',t:['Resolver problemas de reconocimiento de voz con el micrófono definitivo instalado en el robot (ruido del motor)']},
    ]},
   {n:19,d:'7–10 ago',p:3,
-   thu:['Demo: sistema estable, sin bugs críticos → verde para pruebas reales','Preparar protocolo de pruebas para el sprint de agosto (quién hace qué)','Confirmar asistencia de todos para el sprint de pruebas del fin de semana'],
-   home:[
-     {r:'PROG',t:['Implementar log de errores del sistema (registrar en BD con timestamp)','Probar el robot solo en casa durante 30 minutos continuos y anotar problemas']},
-     {r:'ELEC',t:['Prueba de batería: medir duración real con cronómetro en uso normal']},
-     {r:'ALL', t:['Preparar el entorno de prueba: definir "habitación A" y "habitación B" en la casa']},
+   thu:['Demo: sistema integrado estable y sin bugs críticos → ✓ listo para pruebas en entorno real','Preparar el checklist de pruebas para el sprint de agosto (lista de escenarios detallada)','Confirmar asistencia de todo el equipo al sprint de pruebas reales del 23–24 agosto'],
+   tasks:[
+     {g:'ALL',t:['Preparar checklist de pruebas en Google Sheets: escenarios, responsable y resultado esperado','Probar el robot en casa durante 20–30 min y documentar cualquier problema nuevo que aparezca']},
+     {g:'MOV',t:['Prueba de autonomía real: robot encendido y navegando → medir cuánto tiempo dura la batería']},
+     {g:'APP',t:['Preparar el sistema de log de errores en la BD: registrar timestamp y descripción de cada fallo']},
    ]},
+
   {n:20,d:'14–17 ago',p:4,
-   thu:['PRESENTACIÓN CORTA del estado actual al equipo / profesor (15 min)','Preparar checklist digital de pruebas para el sprint de agosto','Confirmar asistencia al sprint de pruebas reales del fin de semana'],
-   home:[
-     {r:'PROG',t:['Preparar el checklist de pruebas en Google Sheets con todos los casos','Resolver últimos bugs pendientes antes de las pruebas reales']},
-     {r:'DIS', t:['Acabado visual final del robot: pintura, logo del equipo, detalles estéticos']},
-     {r:'ALL', t:['Preparar formulario de feedback para los observadores durante las pruebas']},
+   thu:['Presentación corta del estado actual al equipo completo o al profesor (15 min)','Preparar el robot para el sprint de pruebas: batería cargada, pastillas en compartimentos, app actualizada','Confirmar asistencia al sprint de pruebas en entorno real del 23–24 agosto'],
+   tasks:[
+     {g:'ALL',t:['Preparar formulario de feedback para observadores externos durante las pruebas del sprint','Verificar que el robot funciona correctamente en casa antes del sprint del fin de semana']},
+     {g:'APP',t:['Finalizar el checklist de pruebas en Google Sheets con todos los escenarios de uso real']},
    ]},
   {n:21,d:'21–24 ago',p:4,special:'META AGOSTO',
-   fs:{l:'Sesión Grupal 5 · Pruebas Reales — META AGOSTO ✓',s:'Sáb 23 + Dom 24 agosto · 10am–5pm',tasks:[
-     {m:'ALL',t:['Llevar el robot a una casa real (de un miembro del equipo)','Prueba en entorno real: sala, pasillo, dormitorio, obstáculos reales']},
-     {m:'MOV',t:['Prueba en diferentes superficies: madera, cerámica, alfombra, umbral de puerta']},
-     {m:'DISP',t:['Prueba con diferentes tipos de pastillas: redondas, ovaladas, grandes, pequeñas']},
-     {m:'APP',t:['Prueba de usabilidad: alguien ajeno al equipo usa la app sin instrucciones previas']},
-     {m:'IA',t:['Prueba de voz en ambiente con ruido real: TV encendida, gente hablando']},
-     {m:'ALL',t:['Documentar TODOS los bugs y mejoras: hacer lista priorizada en tiempo real (Google Sheets)']},
+   fs:{l:'Sesión Grupal 5 · Pruebas en Entorno Real — META AGOSTO ✓',s:'Sáb 23 + Dom 24 agosto · 10 am–5 pm',tasks:[
+     {g:'ALL',t:['Llevar el robot a una casa real (de un integrante del equipo)','Prueba completa en entorno real: sala, pasillo, dormitorio, obstáculos domésticos auténticos']},
+     {g:'MOV',t:['Prueba en superficies: cerámica, madera, alfombra, umbral de puerta, pequeños desniveles']},
+     {g:'DISP',t:['Prueba con diferentes tipos de pastillas reales: medir tasa de éxito en condiciones normales de uso']},
+     {g:'APP',t:['Prueba de usabilidad: alguien ajeno al equipo usa la app sin recibir instrucciones previas']},
+     {g:'IA',t:['Prueba de voz con ruido real: TV encendida, ventilador, conversaciones de fondo']},
+     {g:'ALL',t:['Documentar TODOS los bugs y mejoras en el checklist de Google Sheets durante las pruebas en tiempo real']},
    ]},
-   thu:['PRESENTACIÓN OFICIAL: sistema funcional al 80% — META DE AGOSTO ALCANZADA','Demostrar flujo completo: registro → alarma → robot navega → dispensa → confirma','Recoger feedback de observadores externos (profesores, compañeros)'],
-   home:[
-     {r:'ALL',t:['Preparar el robot para el sprint de pruebas del fin de semana']},
+   thu:['PRESENTACIÓN OFICIAL: sistema funcional al 80% — META DE AGOSTO ALCANZADA ✓','Demostrar el flujo completo: registro → alarma → robot navega → dispensa → confirma → IA responde','Recoger feedback de observadores externos: profesores, compañeros, familiar'],
+   tasks:[
+     {g:'ALL',t:['Preparar el robot para el sprint de pruebas en entorno real: todo cargado y verificado antes del sábado']},
    ]},
   {n:22,d:'28–31 ago',p:4,
-   thu:['Consolidar la lista de bugs de las pruebas reales: críticos, importantes, deseables','Asignar correcciones a cada persona para septiembre','Confirmar qué funciones quedan perfectas y cuáles se mejorarán'],
-   home:[
-     {r:'PROG',t:['Implementar las 3 correcciones más críticas del bug list','Crear backlog priorizado en Trello/Notion para todo septiembre']},
-     {r:'ELEC',t:['Reforzar conexiones que fallaron durante las pruebas en la casa real']},
+   thu:['Consolidar lista de bugs del sprint de pruebas: críticos, importantes, deseables','Asignar correcciones a cada grupo para septiembre con fecha límite','Confirmar qué funciones están perfectas y cuáles se mejorarán'],
+   tasks:[
+     {g:'ALL',t:['Crear backlog priorizado de correcciones en Trello o Google Sheets con responsable y fecha']},
+     {g:'MOV',t:['Analizar datos: ¿en qué superficies falló? ¿qué obstáculos no detectó? Documentar con fotos si es posible']},
+     {g:'DISP',t:['Analizar errores de dispensado: ¿qué tipo de pastilla causó más problemas? Proponer ajuste']},
+     {g:'APP',t:['Documentar los problemas de UX encontrados en la prueba de usabilidad con usuarios reales']},
+     {g:'IA',t:['Analizar preguntas que la IA respondió mal y mejorar los prompts y el catálogo de respuestas']},
    ]},
   {n:23,d:'4–7 sep',p:4,
-   thu:['Demo: ¿se corrigieron los bugs críticos de agosto?','Revisión del backlog: ¿qué queda pendiente para octubre?','Ajustar el cronograma de mejoras si es necesario'],
-   home:[
-     {r:'PROG',t:['Segunda ronda de correcciones según el feedback de las pruebas reales','Optimizar el código: velocidad, uso de memoria, manejo de errores']},
-     {r:'ELEC',t:['Mejorar gestión de energía: indicador de batería baja visible en la pantalla']},
-     {r:'ALL', t:['Actualizar la documentación técnica con todos los cambios realizados']},
+   thu:['Demo: ¿se corrigieron los bugs críticos de agosto? Comparar antes vs después','Revisión del backlog: ¿qué correcciones están terminadas, cuáles siguen en progreso?','Ajustar el cronograma de mejoras si hay algo que tomó más tiempo del esperado'],
+   tasks:[
+     {g:'MOV',t:['Implementar correcciones del backlog de movilidad: superficies problemáticas, radio de giro insuficiente']},
+     {g:'DISP',t:['Implementar correcciones del dispensador: tipos de pastillas que se atascan, sensor poco confiable']},
+     {g:'APP',t:['Implementar correcciones de UX: flujo más claro, botones más grandes, mensajes de error descriptivos']},
+     {g:'IA',t:['Ampliar el banco de respuestas: más preguntas de salud, más contexto personalizado, mayor precisión']},
    ]},
+
   {n:24,d:'11–14 sep',p:5,
-   thu:['Demo mejorado: comparar versión agosto vs versión actual','¿Cuánto mejoró? ¿Qué cosas nuevas se agregaron desde agosto?','Revisar qué falta para tener listo el proyecto de presentación final'],
-   home:[
-     {r:'PROG',t:['Mejorar UX/UI de la app: fluidez, tipografías, colores, transiciones','Ampliar respuestas de la IA: más preguntas sobre salud y medicamentos frecuentes']},
-     {r:'DIS', t:['Diseñar el material visual para la presentación final: diapositivas, infografía del robot']},
-     {r:'ALL', t:['Empezar estructura de la presentación técnica final: secciones, contenido, tiempo']},
+   thu:['Demo mejorado: comparar versión de agosto vs versión actual de septiembre','¿Qué mejoró concretamente? Revisión honesta con números (tasa de error, tiempo de respuesta)','Definir funcionalidades adicionales para agregar en las últimas semanas antes de octubre'],
+   tasks:[
+     {g:'MOV',t:['Mejorar precisión de navegación: reducir desvíos, mejorar retorno al punto de carga','Implementar indicador de batería baja: alerta visual en pantalla y sonora cuando quede menos del 20%']},
+     {g:'DISP',t:['Implementar estadísticas de uso en la app: compartimento más utilizado, tasa de éxito por tipo de pastilla']},
+     {g:'APP',t:['Mejorar estética de la interfaz: tipografía más clara, colores coherentes, transiciones suaves','Implementar modo oscuro para usar el robot en la madrugada sin deslumbrar']},
+     {g:'IA',t:['Implementar seguimiento entre sesiones: la IA recuerda lo preguntado en conversaciones anteriores','Ampliar comandos: "¿puedo tomar esto con el estómago vacío?", "¿qué interacciones tiene X con Y?"']},
    ]},
   {n:25,d:'18–21 sep',p:5,
-   thu:['Prueba de regresión: verificar que todas las mejoras no rompieron nada','¿Todo sigue funcionando igual que en agosto? ¿Algo mejoró?','Confirmar estructura final de la presentación'],
-   home:[
-     {r:'PROG',t:['Prueba de regresión completa: cada módulo pasa todas sus pruebas','Limpiar código: comentarios claros, refactoring, orden en archivos']},
-     {r:'ALL', t:['Filmar video demostrativo corto del robot funcionando (30–60 segundos)','Preparar el README del repositorio GitHub para la presentación']},
+   thu:['Prueba de regresión: verificar que las mejoras de septiembre no rompieron nada que ya funcionaba en agosto','¿Todo el sistema sigue funcionando al menos igual que en agosto?','Confirmar estructura y contenido de la presentación final de octubre'],
+   tasks:[
+     {g:'ALL',t:['Prueba de regresión completa: cada grupo ejecuta todos sus casos del checklist original','Filmar video demostrativo del robot funcionando (60–90 segundos, con narración de voz)']},
+     {g:'APP',t:['Limpiar código: comentarios claros, refactoring, README actualizado en GitHub']},
+     {g:'ALL',t:['Preparar borrador de la presentación final: arquitectura del sistema, proceso de desarrollo, resultados']},
    ]},
   {n:26,d:'25–28 sep',p:5,
-   thu:['Ensayo de presentación: cada módulo presenta su parte en 3 minutos','Feedback del equipo: ¿qué mejorar en contenido y forma de presentar?','Confirmar tareas finales para el sprint de octubre'],
-   home:[
-     {r:'ALL', t:['Preparar diapositivas finales: arquitectura, proceso, resultados, lecciones aprendidas','Preparar documentación técnica final en PDF']},
-     {r:'PROG',t:['Preparar el repositorio GitHub: limpio, con README, video demo y documentación']},
-     {r:'ALL', t:['Escribir la sección de "lecciones aprendidas" del proyecto en equipo']},
+   thu:['Ensayo de presentación: cada grupo presenta su parte en exactamente 3 minutos (cronometrado)','Feedback del equipo: contenido, claridad, tiempo asignado, calidad del demo en vivo','Confirmar la agenda completa de la sesión final del 4–5 de octubre'],
+   tasks:[
+     {g:'ALL',t:['Preparar diapositivas finales: arquitectura técnica, proceso, resultados, métricas y lecciones aprendidas','Documentación técnica final en PDF: diagramas de circuitos, esquema de BD, manual de usuario básico']},
+     {g:'APP',t:['Repositorio GitHub listo para entrega: README completo, video demo incrustado, documentación técnica']},
    ]},
   {n:27,d:'2–5 oct',p:5,special:'FINALIZACIÓN',
-   fs:{l:'Sesión Grupal 6 · Presentación Final',s:'Sáb 4 + Dom 5 octubre · 10am–5pm',tasks:[
-     {m:'ALL',t:['Demo en vivo del robot en condiciones reales de presentación final','Presentación grupal completa: arquitectura + proceso + resultados + lecciones aprendidas']},
-     {m:'ALL',t:['Entrega de documentación: manual técnico + manual de usuario + repositorio GitHub']},
-     {m:'ALL',t:['Foto y video grupal del equipo con el robot terminado 🎉','Revisión de últimas correcciones post-presentación si se solicitan']},
+   fs:{l:'Sesión Grupal 6 · Presentación Final 🎉',s:'Sáb 4 + Dom 5 octubre · 10 am–5 pm',tasks:[
+     {g:'ALL',t:['Demo en vivo del robot en condiciones reales de presentación ante audiencia','Presentación grupal completa: arquitectura + proceso + resultados + métricas + lecciones aprendidas del equipo']},
+     {g:'ALL',t:['Entrega de documentación: manual técnico, manual de usuario, repositorio GitHub, video demo','Foto y video grupal del equipo completo con el robot terminado 🎉']},
+     {g:'ALL',t:['Archivar todo el material en el Drive compartido con estructura ordenada por categoría','Revisión de ajustes finales si el equipo o el profesor los solicita']},
    ]},
-   thu:['Ensayo final completo de la presentación (cronometrado, 15–20 min)','Preparar el robot para transporte seguro al lugar de presentación','Asignar roles en la presentación: quién habla cada parte'],
-   home:[
-     {r:'ALL',t:['Revisar y practicar tu parte de la presentación','Cargar y asegurarse de que el robot funciona correctamente']},
+   thu:['Ensayo final de la presentación completa (cronometrado, 15–20 minutos)','Asignar roles: quién presenta cada sección de la presentación','Preparar el robot para transporte seguro al lugar de presentación'],
+   tasks:[
+     {g:'ALL',t:['Practicar tu parte de la presentación al menos 2 veces','Verificar que el robot funciona correctamente antes del sábado']},
    ]},
 ];
 
-let actPh='all', actRl='all', fsOnly=false;
-const open=new Set([3]);
+// ── STATE ──
+let actPh='all', actGr='all', fsOnly=false, editMode=false;
+const open = new Set([3]);
+const LS = 'rdp26_';
+const ls = {
+  set(k,v){ try{localStorage.setItem(LS+k,v)}catch(e){} },
+  get(k){ try{return localStorage.getItem(LS+k)}catch(e){return null} }
+};
 
+// ── RENDER ──
 function render(){
-  const filt=W.filter(w=>{
-    if(fsOnly&&!w.fs)return false;
-    if(actPh!=='all'&&String(w.p)!==actPh)return false;
-    if(actRl!=='all'&&!(w.home||[]).some(h=>h.r===actRl||h.r==='ALL')&&!w.fs)return false;
+  const filt = W.filter(w=>{
+    if(fsOnly && !w.fs) return false;
+    if(actPh!=='all' && String(w.p)!==actPh) return false;
+    if(actGr!=='all'){
+      const inTasks = (w.tasks||[]).some(t=>t.g===actGr||t.g==='ALL');
+      const inFS = w.fs && w.fs.tasks.some(t=>t.g===actGr||t.g==='ALL');
+      if(!inTasks && !inFS) return false;
+    }
     return true;
   });
-  document.getElementById('wcount').textContent=`Mostrando ${filt.length} de ${W.length} semanas · Haz clic en una semana para ver el detalle`;
-  document.getElementById('list').innerHTML=filt.map(card).join('');
-  document.querySelectorAll('.card-hdr').forEach(h=>h.addEventListener('click',()=>tog(+h.dataset.n)));
+  document.getElementById('wcount').textContent =
+    `Mostrando ${filt.length} de ${W.length} semanas · Haz clic en una semana para expandirla`;
+  document.getElementById('list').innerHTML = filt.map(buildCard).join('');
+  document.querySelectorAll('.card-hdr').forEach(h=>
+    h.addEventListener('click',()=>{ open.has(+h.dataset.n)?open.delete(+h.dataset.n):open.add(+h.dataset.n); render(); })
+  );
+  if(editMode) bindEditable();
+  bindNotes();
 }
 
-function card(w){
-  const ph=PH[w.p], io=open.has(w.n), hasFS=!!w.fs;
-  let cls='wcard';
-  if(w.cur)cls+=' cur';
-  if(w.past)cls+=' past';
-  if(hasFS)cls+=' fs';
+function buildCard(w){
+  const ph = PH[w.p], io = open.has(w.n);
+  let cls = 'wcard' + (w.cur?' cur':'') + (w.past?' past':'') + (w.fs?' fs-week':'');
+  let bdg = `<span class="pbadge" style="background:${ph.bg};color:${ph.tx}">${ph.n}</span>`;
+  if(w.cur)     bdg += `<span class="sbadge" style="background:#DBEAFE;color:#1E3A8A">Semana actual</span>`;
+  if(w.fs)      bdg += `<span class="sbadge" style="background:#FEF3C7;color:#92400E">👥 Sesión grupal</span>`;
+  if(w.special) bdg += `<span class="sbadge" style="background:${w.special.includes('META')?'#FEE2E2':'#D1FAE5'};color:${w.special.includes('META')?'#991B1B':'#065F46'}">${w.special}</span>`;
 
-  let bdg=`<span class="pbadge" style="background:${ph.bg};color:${ph.tx}">${ph.n}</span>`;
-  if(w.cur)bdg+=`<span class="sbadge" style="background:#DBEAFE;color:#1E3A8A">Semana actual</span>`;
-  if(hasFS)bdg+=`<span class="sbadge" style="background:#FEF3C7;color:#92400E">👥 Sesión grupal</span>`;
-  if(w.special)bdg+=`<span class="sbadge" style="background:${w.special.includes('META')?'#FEE2E2':'#D1FAE5'};color:${w.special.includes('META')?'#991B1B':'#065F46'}">${w.special}</span>`;
+  // Thursday tasks
+  const thuHtml = w.thu.map((t,i)=>{
+    const saved = ls.get(`thu_${w.n}_${i}`);
+    const txt = saved!==null ? saved : t;
+    return `<div class="task${saved!==null?' edited':''}" data-wn="${w.n}" data-col="thu" data-idx="${i}"${editMode?' contenteditable="true"':''}>${escHtml(txt)}</div>`;
+  }).join('');
 
-  const thu=w.thu.map(t=>`<div class="task">${t}</div>`).join('');
+  // Home tasks (by group)
+  const filtTasks = actGr==='all' ? (w.tasks||[]) : (w.tasks||[]).filter(t=>t.g===actGr||t.g==='ALL');
+  const tasksHtml = filtTasks.map((grp,gi)=>{
+    const G = GRP[grp.g]||GRP.ALL;
+    const items = grp.t.map((t,ti)=>{
+      const saved = ls.get(`task_${w.n}_${gi}_${ti}`);
+      const txt = saved!==null ? saved : t;
+      return `<div class="task${saved!==null?' edited':''}" data-wn="${w.n}" data-col="task" data-gi="${gi}" data-idx="${ti}"${editMode?' contenteditable="true"':''}>${escHtml(txt)}</div>`;
+    }).join('');
+    return `<div class="grp"><span class="gbadge" style="background:${G.bg};color:${G.c}">${G.icon} ${G.l}</span>${items}</div>`;
+  }).join('') || `<div class="task" style="color:#A1A1AA">Sin tareas para este grupo en esta semana</div>`;
 
-  const hm=(actRl==='all'?(w.home||[]):(w.home||[]).filter(h=>h.r===actRl||h.r==='ALL'))
-    .map(h=>{const r=RL[h.r]||RL.ALL;return`<div class="hgroup"><span class="rbadge" style="background:${r.bg};color:${r.c}">${r.i} ${r.l}</span>${h.t.map(t=>`<div class="task">${t}</div>`).join('')}</div>`;}).join('');
-
-  let fscol='';
-  if(hasFS){
-    const fs=w.fs;
-    fscol=`<div class="col fscol"><div class="col-hdr">👥 Fin de semana · Grupal</div>
-      <div class="fs-title">${fs.l}<span class="fs-sub">${fs.s}</span></div>
-      ${fs.tasks.map(g=>{const m=MD[g.m]||MD.ALL;return`<div class="fgroup"><span class="fmbadge" style="background:${m.bg};color:${m.c}">${m.l}</span>${g.t.map(t=>`<div class="task">${t}</div>`).join('')}</div>`;}).join('')}</div>`;
+  // FS column
+  let fsCol = '';
+  if(w.fs){
+    const filtFS = actGr==='all' ? w.fs.tasks : w.fs.tasks.filter(t=>t.g===actGr||t.g==='ALL');
+    const fsItems = filtFS.map(grp=>{
+      const G = GRP[grp.g]||GRP.ALL;
+      return `<div class="grp"><span class="gbadge" style="background:${G.bg};color:${G.c}">${G.icon} ${G.l}</span>${grp.t.map(t=>`<div class="task">${escHtml(t)}</div>`).join('')}</div>`;
+    }).join('');
+    fsCol = `<div class="col fscol"><div class="col-hdr">👥 Fin de semana · Sesión grupal</div><div class="fs-title">${w.fs.l}<span class="fs-sub">${w.fs.s}</span></div>${fsItems}</div>`;
   }
 
-  return`<div class="${cls}" style="border-left-color:${ph.c}">
+  // Notes
+  const savedNote = ls.get(`note_${w.n}`) || '';
+  const notesHtml = `<div class="notes-row${editMode?' show':''}" id="nr_${w.n}">
+    <span class="notes-label">📝 Notas</span>
+    <textarea class="notes-ta" data-wn="${w.n}" rows="2" placeholder="Anotaciones del equipo… se guardan automáticamente.">${escHtml(savedNote)}</textarea>
+    <span class="notes-saved" id="ns_${w.n}">✓ Guardado</span>
+  </div>`;
+
+  return `<div class="${cls}" style="border-left-color:${ph.c}">
     <div class="card-hdr${io?' open':''}" data-n="${w.n}">
-      <span class="wnum">SEM&nbsp;${w.n}</span>
+      <span class="wnum">SEM ${w.n}</span>
       <span class="wdates">${w.d}</span>
       ${bdg}
       <span class="chev">▶</span>
     </div>
-    <div class="cbody ${hasFS?'three':'two'}${io?' open':''}">
-      <div class="col"><div class="col-hdr">📅 Jueves · 40 min</div>${thu}</div>
-      <div class="col"><div class="col-hdr">🏠 Tarea en casa</div>${hm||'<div class="task" style="color:#A1A1AA">Revisar avances del equipo</div>'}</div>
-      ${fscol}
+    <div class="cbody ${w.fs?'grid-3':'grid-2'}${io?' open':''}">
+      <div class="col"><div class="col-hdr">📅 Jueves · 40 min</div>${thuHtml}</div>
+      <div class="col"><div class="col-hdr">🏠 Tarea en casa · Por grupo</div>${tasksHtml}</div>
+      ${fsCol}
     </div>
+    ${notesHtml}
   </div>`;
 }
 
-function tog(n){open.has(n)?open.delete(n):open.add(n);render();}
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function bindEditable(){
+  document.querySelectorAll('[contenteditable="true"]').forEach(el=>{
+    el.addEventListener('blur',()=>{
+      const {wn, col, idx, gi} = el.dataset;
+      const key = col==='thu' ? `thu_${wn}_${idx}` : `task_${wn}_${gi}_${idx}`;
+      ls.set(key, el.textContent.trim());
+      el.classList.add('edited');
+    });
+  });
+}
+
+function bindNotes(){
+  document.querySelectorAll('.notes-ta').forEach(ta=>{
+    let tmr;
+    ta.addEventListener('input',()=>{
+      clearTimeout(tmr);
+      tmr = setTimeout(()=>{
+        ls.set(`note_${ta.dataset.wn}`, ta.value);
+        const ns = document.getElementById('ns_'+ta.dataset.wn);
+        if(ns){ ns.style.display='inline'; setTimeout(()=>ns.style.display='none',2000); }
+      }, 700);
+    });
+  });
+}
+
+function toggleEdit(){
+  editMode = !editMode;
+  const btn = document.getElementById('editBtn');
+  btn.classList.toggle('active', editMode);
+  btn.textContent = editMode ? '✓ Salir de edición' : '✏ Editar contenido';
+  document.getElementById('editNotice').classList.toggle('show', editMode);
+  render();
+}
 
 document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
-  const t=b.dataset.t,v=b.dataset.v;
-  if(t==='ph'){actPh=v;document.querySelectorAll('[data-t="ph"]').forEach(x=>x.classList.toggle('on',x.dataset.v===v));}
-  else{actRl=v;document.querySelectorAll('[data-t="rl"]').forEach(x=>x.classList.toggle('on',x.dataset.v===v));}
+  const {t, v} = b.dataset;
+  if(t==='ph'){ actPh=v; document.querySelectorAll('[data-t="ph"]').forEach(x=>x.classList.toggle('on',x.dataset.v===v)); }
+  else        { actGr=v; document.querySelectorAll('[data-t="gr"]').forEach(x=>x.classList.toggle('on',x.dataset.v===v)); }
   render();
 }));
-document.getElementById('fsOnly').addEventListener('change',e=>{fsOnly=e.target.checked;render();});
+document.getElementById('fsOnly').addEventListener('change',e=>{ fsOnly=e.target.checked; render(); });
 
 render();
 </script>
